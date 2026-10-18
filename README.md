@@ -21,7 +21,7 @@ Site stack (detected via Themesinfo, confirm in wp-admin): Hello Elementor theme
 |---|---|
 | Offer end date/timezone | `data-end` / `data-tz` on `<div class="ffp" ...>`. The countdown and the "Ends …" / "Valid Oct 13–…" labels follow it. Currently a demo date. |
 | CTA links | `https://fredfitness.com/membership/` (Join Now, Claim My Free Month) and `https://fredfitness.com/assessment/` (assessment buttons). Clean URLs; the `_gl`/`_ga` params copied from the live site are session-specific and were left out. |
-| Photos | Each `.ffp-ph` block is a placeholder. Add `<img src="…" alt="…">` inside it and delete its `<figcaption class="ffp-tag">`. For the hero, do this in `.ffp-hero__bg`. |
+| Photos | Photos live in `images/` and are referenced by absolute `https://arifbillahcse.github.io/FredFitness/images/…` URLs (demo hosting). **Before going live, upload them to the WordPress Media Library and replace those URLs.** The Matrix Cardio card still has its placeholder: add an `<img>` inside its `.ffp-ph` and delete the `<figcaption class="ffp-tag">`. |
 | Fine print | The bracketed line in the offer band. |
 | Class schedule | The `<ul class="ffp-sched">` list. |
 
