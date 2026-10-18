@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find Us + FAQ — 4 design options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--amber:#EFAE0C;--amber-hi:#FFC21F;--green:#0B392C;--sage:#637660;--ink:#1A201E;--paper:#F9F8F4;--text:#3A3F3D;--line:#dcdad3;--mint:#A9C0B4;
+  --display:'Montserrat','Poppins',Arial,sans-serif;--body:'Poppins',Arial,sans-serif;--pad:clamp(20px,3.8vw,48px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:var(--body);font-size:16px;line-height:1.6;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+h2,h3,p,dl,dd,ul{margin:0;padding:0}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.ic{width:1.25em;height:1.25em;flex:none}
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--pad)}
+.label{background:#111;color:#fff;font:800 .72rem/1 var(--body);letter-spacing:.16em;text-transform:uppercase;padding:1rem var(--pad);display:flex;gap:1rem;flex-wrap:wrap;justify-content:space-between}
+.label b{color:var(--amber)}
+.eyebrow{font:800 .72rem/1.4 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin:0 0 1rem}
+.h2{font:900 clamp(2.1rem,1.2rem + 2.6vw,3.4rem)/1.02 var(--display);letter-spacing:-.02em;text-transform:uppercase;color:var(--green)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:3rem;padding:.8rem 1.6rem;border:2px solid transparent;border-radius:6px;font:800 .8rem/1.2 var(--body);letter-spacing:.06em;text-transform:uppercase;transition:.15s}
+.btn--amber{background:var(--amber);color:#111}.btn--amber:hover{background:var(--amber-hi)}
+.btn--ghost{border-color:currentColor;color:inherit}.btn--ghost:hover{background:#fff;color:#111;border-color:#fff}
+.btn--dark{background:#111;color:#fff}.btn--dark:hover{background:#000}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem}
+.photo{position:relative;overflow:hidden;border-radius:14px;background:var(--sage)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* FAQ base (markup injected by JS) */
+details summary{display:flex;align-items:center;gap:.9rem;cursor:pointer;list-style:none;font:800 1.02rem/1.35 var(--display);letter-spacing:-.01em}
+details summary::-webkit-details-marker{display:none}
+details p{font:400 .92rem/1.75 var(--body);color:var(--text)}
+.q-ic{position:relative;flex:none;width:1.9rem;height:1.9rem;border-radius:50%;display:grid;place-items:center;transition:transform .2s}
+.q-ic::before,.q-ic::after{content:"";position:absolute;width:.8rem;height:2px;background:currentColor;border-radius:2px}
+.q-ic::after{transform:rotate(90deg)}
+details[open] .q-ic{transform:rotate(45deg)}
+.status{display:inline-flex;align-items:center;gap:.55rem;font:600 .82rem/1.2 var(--body)}
+.status i{width:.6rem;height:.6rem;border-radius:50%;background:#2fbf71;box-shadow:0 0 0 4px rgba(47,191,113,.22)}
+.status.is-closed i{background:#d9534f;box-shadow:0 0 0 4px rgba(217,83,79,.22)}
+.hours{display:grid;gap:0}
+.hours div{display:flex;justify-content:space-between;gap:1rem;padding:.65rem 0;border-bottom:1px dashed rgba(255,255,255,.25);font-size:.92rem}
+.hours dt{font-weight:600}.hours dd{font-weight:400;text-align:right}
+
+/* ===================== A — Overlap card ===================== */
+.A{padding:clamp(3rem,7vw,6rem) 0}
+.A-top{display:grid;grid-template-columns:5fr 7fr;align-items:center}
+.A-card{position:relative;z-index:2;background:var(--green);color:#fff;border-radius:14px;padding:clamp(1.8rem,3.4vw,3rem);margin-right:-4.5rem;box-shadow:0 30px 60px -24px rgba(11,57,44,.55)}
+.A-card .eyebrow{color:var(--amber)}
+.A-card .h2{color:#fff;margin-bottom:1rem}
+.A-card .addr{color:#d3e3da;margin-bottom:1.2rem;font-size:.95rem}
+.A-card .hours{margin-bottom:1.6rem}
+.A-card .btn--ghost{color:#fff}
+.A-photo{aspect-ratio:4/3.1}
+.A-faq{display:grid;grid-template-columns:1fr 2fr;gap:2rem clamp(2rem,6vw,5rem);margin-top:clamp(3rem,6vw,5rem)}
+.A-faq h3{font:900 clamp(1.5rem,1rem + 1.6vw,2.2rem)/1.1 var(--display);letter-spacing:-.02em;text-transform:uppercase;color:var(--green)}
+.A-faq details{border-bottom:1px solid var(--line)}
+.A-faq details:first-child{border-top:1px solid var(--line)}
+.A-faq summary{padding:1.2rem 0;color:var(--green);justify-content:space-between}
+.A-faq .q-ic{background:var(--green);color:#fff}
+.A-faq details[open] .q-ic{background:var(--amber);color:#111}
+.A-faq details p{padding:0 3rem 1.3rem 0;max-width:38rem}
+
+/* ===================== B — Info list + FAQ cards ===================== */
+.B{padding:clamp(3rem,7vw,6rem) 0}
+.B-top{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem clamp(2rem,5vw,4.5rem);align-items:stretch}
+.B-info .h2{margin-bottom:1.6rem}
+.B-list{display:grid;gap:1.1rem;margin:0 0 2rem}
+.B-list li{display:flex;gap:1rem;align-items:flex-start;list-style:none}
+.B-ico{width:2.9rem;height:2.9rem;border-radius:50%;background:var(--green);color:var(--amber);display:grid;place-items:center;flex:none}
+.B-list small{display:block;font:800 .68rem/1.3 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--sage)}
+.B-list div span{font:600 1rem/1.5 var(--body);color:var(--ink)}
+.B-list a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--amber);text-decoration-thickness:2px}
+.B-photo{min-height:26rem}
+.B-photo .status{position:absolute;left:1rem;bottom:1rem;z-index:2;background:#fff;color:var(--ink);padding:.6rem 1rem;border-radius:999px;box-shadow:0 8px 24px -8px rgba(0,0,0,.4)}
+.B-faq{margin-top:clamp(3rem,6vw,5rem)}
+.B-faq h3{font:900 clamp(1.5rem,1rem + 1.6vw,2.2rem)/1.1 var(--display);letter-spacing:-.02em;text-transform:uppercase;color:var(--green);margin-bottom:1.4rem}
+.B-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
+.B-grid details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:0 1.3rem;transition:box-shadow .2s,border-color .2s}
+.B-grid details[open]{border-color:var(--green);box-shadow:0 14px 30px -18px rgba(11,57,44,.5)}
+.B-grid summary{padding:1.2rem 0;color:var(--green);justify-content:space-between}
+.B-grid .q-ic{background:var(--paper);color:var(--green)}
+.B-grid details p{padding:0 0 1.3rem}
+
+/* ===================== C — Banner + three cards ===================== */
+.C{padding:clamp(3rem,7vw,6rem) 0}
+.C-head{text-align:center;margin-bottom:clamp(1.6rem,3vw,2.4rem)}
+.C-banner{aspect-ratio:21/8}
+.C-cards{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:-4.5rem clamp(0rem,3vw,2.5rem) 0}
+.C-card{background:#fff;border-radius:12px;padding:1.6rem 1.6rem 1.7rem;border-top:4px solid var(--amber);box-shadow:0 24px 40px -26px rgba(0,0,0,.45)}
+.C-card .ic{width:1.7rem;height:1.7rem;color:var(--green);margin-bottom:.8rem}
+.C-card h3{font:800 .72rem/1.3 var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:.5rem}
+.C-card p{font:600 .98rem/1.55 var(--body);color:var(--ink)}
+.C-card p a{text-decoration:underline;text-underline-offset:3px}
+.C-card .btn{margin-top:1rem;min-height:2.4rem;padding:.4rem 1rem;font-size:.72rem}
+.C-faq{max-width:52rem;margin:clamp(3rem,6vw,4.5rem) auto 0;counter-reset:q}
+.C-faq h3{font:900 clamp(1.5rem,1rem + 1.6vw,2.2rem)/1.1 var(--display);letter-spacing:-.02em;text-transform:uppercase;color:var(--green);text-align:center;margin-bottom:1.6rem}
+.C-faq details{border-bottom:1px solid var(--line);counter-increment:q}
+.C-faq summary{padding:1.3rem 0;color:var(--green)}
+.C-faq summary::before{content:counter(q,decimal-leading-zero);font:900 1.4rem/1 var(--display);color:var(--amber);min-width:2.4rem}
+.C-faq .q-ic{margin-left:auto;border:2px solid var(--green);color:var(--green);width:1.9rem;height:1.9rem}
+.C-faq details[open] .q-ic{background:var(--green);color:#fff}
+.C-faq details p{padding:0 0 1.4rem 3.3rem}
+
+/* ===================== D — Dark immersive ===================== */
+.D{background:var(--green);color:#fff;padding:clamp(3.5rem,8vw,7rem) 0}
+.D-top{display:grid;grid-template-columns:1.05fr 1fr;gap:3rem clamp(2.5rem,6vw,5.5rem);align-items:center}
+.D .eyebrow{color:var(--amber)}
+.D .h2{color:#fff;margin-bottom:1.2rem}
+.D .status{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:.5rem 1rem;border-radius:999px;margin-bottom:1.6rem;color:#fff}
+.D-lines{display:grid;gap:.9rem;margin:0 0 2rem}
+.D-lines li{display:flex;gap:.9rem;align-items:flex-start;list-style:none;color:#e1ece6}
+.D-lines .ic{color:var(--amber);margin-top:.2rem}
+.D-lines a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--amber)}
+.D-photo-wrap{position:relative}
+.D-photo-wrap::before{content:"";position:absolute;inset:1.1rem -1.1rem -1.1rem 1.1rem;border:2px solid var(--amber);border-radius:14px}
+.D-photo{aspect-ratio:1/1;position:relative;z-index:1}
+.D-faq{margin-top:clamp(3.5rem,7vw,6rem)}
+.D-faq h3{font:900 clamp(1.5rem,1rem + 1.6vw,2.2rem)/1.1 var(--display);letter-spacing:-.02em;text-transform:uppercase;color:#fff;margin-bottom:1.4rem}
+.D-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(2rem,5vw,4rem);align-items:start}
+.D-grid details{border-top:1px solid rgba(255,255,255,.2)}
+.D-grid summary{padding:1.25rem 0;color:#fff;justify-content:space-between}
+.D-grid .q-ic{color:var(--amber);border:2px solid var(--amber)}
+.D-grid details[open] .q-ic{background:var(--amber);color:#111}
+.D-grid details p{color:#cfe0d6;padding:0 2.8rem 1.3rem 0}
+
+@media (max-width:900px){
+  .A-top,.B-top,.D-top,.A-faq{grid-template-columns:1fr}
+  .A-photo{order:1;aspect-ratio:4/3}
+  .A-card{order:2;margin:-3rem 1rem 0}
+  .B-photo{min-height:0;aspect-ratio:4/3}
+  .B-grid,.D-grid{grid-template-columns:1fr}
+  .C-banner{aspect-ratio:4/3}
+  .C-cards{grid-template-columns:1fr;margin:-3rem 1rem 0}
+  .D-photo-wrap{margin:0 1.1rem 1.1rem 0}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
+
+<!-- ============ A ============ -->
+<div class="label"><span><b>Option A</b> · Overlap card — green info card over a big photo, FAQ as a clean two-column list</span></div>
+<section class="A">
+  <div class="wrap">
+    <div class="A-top">
+      <div class="A-card">
+        <p class="eyebrow">Find us</p>
+        <h2 class="h2">1344 4th St<br>Santa Monica</h2>
+        <p class="addr">Between Arizona Ave and Santa Monica Blvd.</p>
+        <dl class="hours"><div><dt>Mon–Fri</dt><dd>5 AM – 10 PM</dd></div><div><dt>Sat–Sun</dt><dd>6 AM – 8 PM</dd></div></dl>
+        <div class="btns">
+          <a class="btn btn--amber" href="https://www.google.com/maps/search/?api=1&query=Fred+Fitness+1344+4th+St+Santa+Monica+CA"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-pin"/></svg>Get directions</a>
+          <a class="btn btn--ghost" href="tel:+13103943733">(310) 394-3733</a>
+        </div>
+      </div>
+      <div class="photo A-photo"><img data-photo alt="Fred Fitness storefront on 4th Street, Santa Monica" style="object-position:50% 38%"></div>
+    </div>
+    <div class="A-faq">
+      <div><p class="eyebrow">Questions</p><h3>Quick answers</h3></div>
+      <div data-faq></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ B ============ -->
+<div class="label"><span><b>Option B</b> · Icon info list + photo with live “open now” badge, FAQ as cards</span></div>
+<section class="B">
+  <div class="wrap">
+    <div class="B-top">
+      <div class="B-info">
+        <p class="eyebrow">Find us</p>
+        <h2 class="h2">1344 4th St<br>Santa Monica</h2>
+        <ul class="B-list">
+          <li><span class="B-ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-pin"/></svg></span><div><small>Address</small><span>1344 4th St, Santa Monica, CA 90401<br><em style="font:400 .88rem var(--body);font-style:normal;color:var(--text)">Between Arizona Ave and Santa Monica Blvd.</em></span></div></li>
+          <li><span class="B-ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg></span><div><small>Hours</small><span>Mon–Fri 5 AM–10 PM<br>Sat–Sun 6 AM–8 PM</span></div></li>
+          <li><span class="B-ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-phone"/></svg></span><div><small>Call</small><span><a href="tel:+13103943733">(310) 394-3733</a></span></div></li>
+          <li><span class="B-ico"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-mail"/></svg></span><div><small>Email</small><span><a href="mailto:info@fredfitness.com">info@fredfitness.com</a></span></div></li>
+        </ul>
+        <a class="btn btn--dark" href="https://www.google.com/maps/search/?api=1&query=Fred+Fitness+1344+4th+St+Santa+Monica+CA">Get directions<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="photo B-photo"><img data-photo alt="Fred Fitness storefront on 4th Street, Santa Monica" style="object-position:50% 40%"><span class="status" data-open><i></i><b></b></span></div>
+    </div>
+    <div class="B-faq">
+      <p class="eyebrow">Questions</p>
+      <h3>Before you visit</h3>
+      <div class="B-grid" data-faq></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ C ============ -->
+<div class="label"><span><b>Option C</b> · Wide banner with three overlapping info cards, numbered FAQ</span></div>
+<section class="C">
+  <div class="wrap">
+    <div class="C-head"><p class="eyebrow">Find us</p><h2 class="h2">Come say hi on 4th Street</h2></div>
+    <div class="photo C-banner"><img data-photo alt="Fred Fitness storefront on 4th Street, Santa Monica" style="object-position:50% 6%"></div>
+    <div class="C-cards">
+      <div class="C-card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-pin"/></svg>
+        <h3>Address</h3><p>1344 4th St<br>Santa Monica, CA 90401</p>
+        <p style="font:400 .85rem/1.5 var(--body);color:var(--text);margin-top:.4rem">Between Arizona Ave and Santa Monica Blvd.</p>
+        <a class="btn btn--amber" href="https://www.google.com/maps/search/?api=1&query=Fred+Fitness+1344+4th+St+Santa+Monica+CA">Directions</a>
+      </div>
+      <div class="C-card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg>
+        <h3>Hours</h3><p>Mon–Fri 5 AM–10 PM<br>Sat–Sun 6 AM–8 PM</p>
+      </div>
+      <div class="C-card">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-phone"/></svg>
+        <h3>Contact</h3><p><a href="tel:+13103943733">(310) 394-3733</a><br><a href="mailto:info@fredfitness.com">info@fredfitness.com</a></p>
+      </div>
+    </div>
+    <div class="C-faq"><h3>Questions</h3><div data-faq></div></div>
+  </div>
+</section>
+
+<!-- ============ D ============ -->
+<div class="label"><span><b>Option D</b> · Dark green immersive — offset-frame photo, “open now” pill, FAQ in two columns</span></div>
+<section class="D">
+  <div class="wrap">
+    <div class="D-top">
+      <div>
+        <p class="eyebrow">Find us</p>
+        <h2 class="h2">1344 4th St<br>Santa Monica</h2>
+        <span class="status" data-open><i></i><b></b></span>
+        <ul class="D-lines">
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-pin"/></svg><span>Between Arizona Ave and Santa Monica Blvd.</span></li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg><span>Mon–Fri 5 AM–10 PM · Sat–Sun 6 AM–8 PM</span></li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-phone"/></svg><a href="tel:+13103943733">(310) 394-3733</a></li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><use href="#i-mail"/></svg><a href="mailto:info@fredfitness.com">info@fredfitness.com</a></li>
+        </ul>
+        <div class="btns">
+          <a class="btn btn--amber" href="https://www.google.com/maps/search/?api=1&query=Fred+Fitness+1344+4th+St+Santa+Monica+CA">Get directions</a>
+          <a class="btn btn--ghost" style="color:#fff" href="tel:+13103943733">Call us</a>
+        </div>
+      </div>
+      <div class="D-photo-wrap"><div class="photo D-photo"><img data-photo alt="Fred Fitness storefront on 4th Street, Santa Monica" style="object-position:50% 40%"></div></div>
+    </div>
+    <div class="D-faq"><p class="eyebrow">Questions</p><h3>Good to know</h3><div class="D-grid" data-faq></div></div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var IMG = 'https://arifbillahcse.github.io/FredFitness/images/storefront-4th-street.webp';
+  Array.prototype.forEach.call(document.querySelectorAll('img[data-photo]'), function (i) { i.src = IMG; });
+
+  var FAQ = [
+    ['Do you have humans there?', 'Yes! We have a lovely team that provides ongoing support. We also offer human-led classes, such as Mat Pilates, which are complimentary to our members.'],
+    ['What is AI-powered fitness?', 'Your fitness assessment data, preferences, chat input, and goal selections are processed to generate a tailored training plan that is based on exercise science. All equipment adapts to your height, strength, range of motion, and your plan – completely removing the guesswork from your workout.'],
+    ['I’m a beginner. Is this for me?', 'Yes. Whether you’re a beginner or an experienced athlete, the equipment adapts to your preferences and goals, and our team is there to help you get started.'],
+    ['Is there a day pass?', 'Yes! Your first day pass is free ($40 thereafter). If you’re just visiting, we also offer week passes.']
+  ];
+  Array.prototype.forEach.call(document.querySelectorAll('[data-faq]'), function (box) {
+    box.innerHTML = FAQ.map(function (f, n) {
+      return '<details' + (n === 0 ? ' open' : '') + '><summary><span>' + f[0] + '</span><span class="q-ic"></span></summary><p>' + f[1] + '</p></details>';
+    }).join('');
+  });
+
+  // Live "open now" status in Santa Monica time. Hours: Sun/Sat 6 AM-8 PM, Mon-Fri 5 AM-10 PM.
+  var H = [[360,1200],[300,1320],[300,1320],[300,1320],[300,1320],[300,1320],[360,1200]];
+  function fmt(m) { var h = Math.floor(m / 60), x = h >= 12 ? 'PM' : 'AM'; return ((h + 11) % 12 + 1) + (m % 60 ? ':' + (m % 60) : '') + ' ' + x; }
+  function status() {
+    var o = {};
+    new Intl.DateTimeFormat('en-US', { timeZone: 'America/Los_Angeles', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false })
+      .formatToParts(new Date()).forEach(function (p) { o[p.type] = p.value; });
+    var d = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(o.weekday), m = (+o.hour % 24) * 60 + (+o.minute), h = H[d];
+    if (m >= h[0] && m < h[1]) { return { open: true, text: 'Open now · until ' + fmt(h[1]) }; }
+    if (m < h[0]) { return { open: false, text: 'Closed · opens today ' + fmt(h[0]) }; }
+    return { open: false, text: 'Closed · opens tomorrow ' + fmt(H[(d + 1) % 7][0]) };
+  }
+  try {
+    var s = status();
+    Array.prototype.forEach.call(document.querySelectorAll('[data-open]'), function (el) {
+      el.querySelector('b').textContent = s.text; el.classList.toggle('is-closed', !s.open);
+    });
+  } catch (e) { Array.prototype.forEach.call(document.querySelectorAll('[data-open]'), function (el) { el.hidden = true; }); }
+})();
+</script>
+</body>
+</html>
