@@ -166,19 +166,27 @@
 .ffp .ffp-offer .ffp-btn{min-width:17rem;min-height:4rem;font-size:.95rem}
 
 /* ---------- find us + faq ---------- */
-.ffp .ffp-find{display:grid;grid-template-columns:1fr 1.1fr;gap:2.5rem clamp(2rem,6vw,5rem)}
-.ffp .ffp-find .ffp-h2{margin-bottom:1.3rem}
-.ffp .ffp-find__p{font:400 .92rem/1.75 var(--ffp-body);color:var(--ffp-text);margin:0 0 1.6rem}
-.ffp .ffp-find__p a{font-weight:600;color:var(--ffp-green);text-decoration:underline;text-underline-offset:3px}
-.ffp .ffp-find .ffp-ph{aspect-ratio:2.4/1.45}
-.ffp .ffp-faq{border-top:1px solid #dcdad3}
-.ffp .ffp-faq details{border-bottom:1px solid #dcdad3}
-.ffp .ffp-faq summary{display:flex;align-items:center;gap:.7rem;padding:1.15rem 0;cursor:pointer;list-style:none;
-  font:800 1.02rem/1.3 var(--ffp-display);letter-spacing:-.01em;color:var(--ffp-green)}
+.ffp .ffp-find__head{text-align:center;margin-bottom:clamp(1.6rem,3vw,2.4rem)}
+.ffp .ffp-find__banner{aspect-ratio:21/8}
+.ffp .ffp-info{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:-4.5rem clamp(0rem,3vw,2.5rem) 0}
+.ffp .ffp-info__card{background:#fff;border-radius:12px;border-top:4px solid var(--ffp-amber);padding:1.6rem 1.6rem 1.7rem;box-shadow:0 24px 40px -26px rgba(0,0,0,.45)}
+.ffp .ffp-info__ic{display:block;width:1.7rem;height:1.7rem;color:var(--ffp-green);margin-bottom:.8rem}
+.ffp .ffp-info__t{font:800 .72rem/1.3 var(--ffp-body);letter-spacing:.16em;text-transform:uppercase;color:var(--ffp-sage);margin:0 0 .5rem}
+.ffp .ffp-info__p{font:600 .98rem/1.55 var(--ffp-body);color:var(--ffp-ink)}
+.ffp .ffp-info__p a{text-decoration:underline;text-underline-offset:3px}
+.ffp .ffp-info__note{font:400 .85rem/1.5 var(--ffp-body);color:var(--ffp-text);margin:.4rem 0 1rem}
+.ffp .ffp-faq{max-width:52rem;margin:clamp(3rem,6vw,4.5rem) auto 0;counter-reset:ffpq}
+.ffp .ffp-faq__t{font:900 clamp(1.5rem,1rem + 1.6vw,2.2rem)/1.1 var(--ffp-display);letter-spacing:-.02em;text-transform:uppercase;color:var(--ffp-green);text-align:center;margin:0 0 1.6rem}
+.ffp .ffp-faq details{border-bottom:1px solid #dcdad3;counter-increment:ffpq}
+.ffp .ffp-faq summary{display:flex;align-items:center;gap:.9rem;padding:1.3rem 0;cursor:pointer;list-style:none;
+  font:800 1.02rem/1.35 var(--ffp-display);letter-spacing:-.01em;color:var(--ffp-green)}
 .ffp .ffp-faq summary::-webkit-details-marker{display:none}
-.ffp .ffp-faq summary::before{content:"";flex:none;border-left:.7rem solid var(--ffp-green);border-top:.4rem solid transparent;border-bottom:.4rem solid transparent;transition:transform .15s}
-.ffp .ffp-faq details[open] summary::before{transform:rotate(90deg)}
-.ffp .ffp-faq details p{font:400 .92rem/1.7 var(--ffp-body);color:var(--ffp-text);padding:0 0 1.2rem 1.4rem;max-width:34rem}
+.ffp .ffp-faq summary::before{content:counter(ffpq,decimal-leading-zero);font:900 1.4rem/1 var(--ffp-display);color:var(--ffp-amber);min-width:2.4rem}
+.ffp .ffp-faq__ic{position:relative;flex:none;margin-left:auto;width:1.9rem;height:1.9rem;border:2px solid var(--ffp-green);border-radius:50%;color:var(--ffp-green);transition:transform .2s,background-color .2s,color .2s}
+.ffp .ffp-faq__ic::before,.ffp .ffp-faq__ic::after{content:"";position:absolute;left:50%;top:50%;width:.8rem;height:2px;margin:-1px 0 0 -.4rem;background:currentColor;border-radius:2px}
+.ffp .ffp-faq__ic::after{transform:rotate(90deg)}
+.ffp .ffp-faq details[open] .ffp-faq__ic{transform:rotate(45deg);background:var(--ffp-green);color:#fff}
+.ffp .ffp-faq details p{font:400 .92rem/1.75 var(--ffp-body);color:var(--ffp-text);padding:0 0 1.4rem 3.3rem}
 
 /* ---------- footer ---------- */
 .ffp .ffp-foot{background:#111;color:#fff;padding:1.6rem 0}
@@ -201,7 +209,7 @@
   .ffp .ffp-stats__grid{grid-template-columns:1fr 1fr}
   .ffp .ffp-stat:nth-child(odd){border-left:0;padding-left:0}
   .ffp .ffp-stat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.16)}
-  .ffp .ffp-sec__head,.ffp .ffp-bio,.ffp .ffp-find,.ffp .ffp-offer__grid{grid-template-columns:1fr}
+  .ffp .ffp-sec__head,.ffp .ffp-bio,.ffp .ffp-offer__grid{grid-template-columns:1fr}
   .ffp .ffp-sec__head .ffp-aside{justify-self:start}
   .ffp .ffp-cards,.ffp .ffp-quotes{grid-template-columns:1fr}
   .ffp .ffp-cards{gap:1.6rem}
@@ -209,6 +217,8 @@
   .ffp .ffp-card .ffp-ph{aspect-ratio:1/1.08}
   .ffp .ffp-bio .ffp-ph{min-height:0;aspect-ratio:1/1}
   .ffp .ffp-offer .ffp-btn{width:100%;min-width:0}
+  .ffp .ffp-find__banner{aspect-ratio:4/3}
+  .ffp .ffp-info{grid-template-columns:1fr;margin:-3rem 1rem 0}
   .ffp .ffp-hero__bg .ffp-tag{display:none}
 }
 @media (max-width:640px){
@@ -220,7 +230,7 @@
   .ffp .ffp-head__right{gap:1rem}
 }
 @media (prefers-reduced-motion:reduce){
-  .ffp .ffp-btn,.ffp .ffp-faq summary::before{transition:none}
+  .ffp .ffp-btn,.ffp .ffp-faq__ic{transition:none}
   .ffp .ffp-btn--amber:hover,.ffp .ffp-btn--dark:hover{transform:none}
 }
 </style>
@@ -393,21 +403,44 @@
 
   <!-- Find us + FAQ -->
   <section class="ffp-sec" aria-labelledby="ffp-find">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <symbol id="ffp-i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+      <symbol id="ffp-i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="ffp-i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    </svg>
     <div class="ffp-wrap ffp-find">
-      <div>
+      <div class="ffp-find__head">
         <p class="ffp-eyebrow ffp-eyebrow--sage">Find us</p>
-        <h2 class="ffp-h2" id="ffp-find">1344 4th St<br class="ffp-br"> Santa Monica</h2>
-        <p class="ffp-find__p">Between Arizona Ave and Santa Monica Blvd.<br>Mon–Fri 5 AM–10 PM · Sat–Sun 6 AM–8 PM<br><a href="tel:+13103943733">(310) 394-3733</a> · <a href="mailto:info@fredfitness.com">info@fredfitness.com</a></p>
-        <figure class="ffp-ph" style="--ph:#637660;aspect-ratio:1.4/1"><img src="https://arifbillahcse.github.io/FredFitness/images/storefront-4th-street.webp" width="893" height="773" alt="Fred Fitness storefront on 4th Street, Santa Monica" loading="lazy" decoding="async" style="object-position:50% 35%"></figure>
+        <h2 class="ffp-h2" id="ffp-find">Come say hi on 4th Street</h2>
       </div>
-      <div>
-        <p class="ffp-eyebrow ffp-eyebrow--sage">Questions</p>
-        <div class="ffp-faq">
-          <details><summary>Do you have humans there?</summary><p>Yes! We have a lovely team that provides ongoing support. We also offer human-led classes, such as Mat Pilates, which are complimentary to our members.</p></details>
-          <details><summary>What is AI-powered fitness?</summary><p>Your fitness assessment data, preferences, chat input, and goal selections are processed to generate a tailored training plan that is based on exercise science. All equipment adapts to your height, strength, range of motion, and your plan – completely removing the guesswork from your workout.</p></details>
-          <details><summary>I’m a beginner. Is this for me?</summary><p>Yes. Whether you’re a beginner or an experienced athlete, the equipment adapts to your preferences and goals, and our team is there to help you get started.</p></details>
-          <details><summary>Is there a day pass?</summary><p>Yes! Your first day pass is free ($40 thereafter). If you’re just visiting, we also offer week passes.</p></details>
+      <figure class="ffp-ph ffp-find__banner" style="--ph:#637660"><img src="https://arifbillahcse.github.io/FredFitness/images/storefront-4th-street.webp" width="893" height="773" alt="Fred Fitness storefront on 4th Street, Santa Monica" loading="lazy" decoding="async" style="object-position:50% 6%"></figure>
+
+      <div class="ffp-info">
+        <div class="ffp-info__card">
+          <svg class="ffp-info__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ffp-i-pin"/></svg>
+          <h3 class="ffp-info__t">Address</h3>
+          <p class="ffp-info__p">1344 4th St<br>Santa Monica, CA 90401</p>
+          <p class="ffp-info__note">Between Arizona Ave and Santa Monica Blvd.</p>
+          <a class="ffp-btn ffp-btn--amber ffp-btn--sm" href="https://www.google.com/maps/search/?api=1&amp;query=Fred+Fitness+1344+4th+St+Santa+Monica+CA" rel="noopener">Directions</a>
         </div>
+        <div class="ffp-info__card">
+          <svg class="ffp-info__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ffp-i-clock"/></svg>
+          <h3 class="ffp-info__t">Hours</h3>
+          <p class="ffp-info__p">Mon–Fri 5 AM–10 PM<br>Sat–Sun 6 AM–8 PM</p>
+        </div>
+        <div class="ffp-info__card">
+          <svg class="ffp-info__ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#ffp-i-phone"/></svg>
+          <h3 class="ffp-info__t">Contact</h3>
+          <p class="ffp-info__p"><a href="tel:+13103943733">(310) 394-3733</a><br><a href="mailto:info@fredfitness.com">info@fredfitness.com</a></p>
+        </div>
+      </div>
+
+      <div class="ffp-faq">
+        <h3 class="ffp-faq__t">Questions</h3>
+        <details><summary>Do you have humans there?<span class="ffp-faq__ic" aria-hidden="true"></span></summary><p>Yes! We have a lovely team that provides ongoing support. We also offer human-led classes, such as Mat Pilates, which are complimentary to our members.</p></details>
+        <details><summary>What is AI-powered fitness?<span class="ffp-faq__ic" aria-hidden="true"></span></summary><p>Your fitness assessment data, preferences, chat input, and goal selections are processed to generate a tailored training plan that is based on exercise science. All equipment adapts to your height, strength, range of motion, and your plan – completely removing the guesswork from your workout.</p></details>
+        <details><summary>I’m a beginner. Is this for me?<span class="ffp-faq__ic" aria-hidden="true"></span></summary><p>Yes. Whether you’re a beginner or an experienced athlete, the equipment adapts to your preferences and goals, and our team is there to help you get started.</p></details>
+        <details><summary>Is there a day pass?<span class="ffp-faq__ic" aria-hidden="true"></span></summary><p>Yes! Your first day pass is free ($40 thereafter). If you’re just visiting, we also offer week passes.</p></details>
       </div>
     </div>
   </section>
